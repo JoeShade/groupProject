@@ -6,11 +6,6 @@
 
 <h1 align="center">Machine Learning - Principles and Applications for Engineers Coursework</h1>
 
-## Disclaimer
-This repo is for a four-day machine learning project for the 25WSP074 - Machine Learning - Principles and Applications for Engineers module at [Loughborough University](https://www.lboro.ac.uk/).
-
-As such it will not be actively maintained or supported.
-
 ## Team Members
 
 <div align="center">
@@ -24,6 +19,11 @@ As such it will not be actively maintained or supported.
 This repository supports a group machine learning coursework project built around a Jupyter notebook-led analysis of lung cancer prediction. The work is organised as an end-to-end supervised classification exercise: inspect the data, justify preprocessing choices, explore patterns, train and compare classifiers, and interpret the features that appear most predictive.
 
 The repository is for group members, tutors, and markers reviewing the academic workflow. It is not intended as a reusable software package or deployable product.
+
+## Disclaimer
+This repo is for a four-day machine learning project for the 25WSP074 - Machine Learning - Principles and Applications for Engineers module at [Loughborough University](https://www.lboro.ac.uk/).
+
+As such it will not be actively maintained or supported.
 
 ## Project objective
 The objective is to develop and evaluate classification models that predict the `LUNG_CANCER` outcome from patient demographic, lifestyle, and symptom variables. The coursework emphasis is on:
