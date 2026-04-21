@@ -1,3 +1,13 @@
+"""Export notebook code cells into a plain Python file for regression tests.
+
+This module owns conversion of notebook code-cell source into a Python export.
+It does not own analysis logic or notebook mutation.
+It depends on the notebook JSON structure used by Jupyter.
+Important constraints:
+- Notebook-only commands such as magics and shell escapes must not execute in tests.
+- Malformed notebook structure should fail loudly instead of producing partial exports.
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -13,15 +23,25 @@ NOTEBOOK_LINE_PREFIXES = ("%", "!", "?")
 
 
 def load_notebook(notebook_path: Path) -> dict:
-    return json.loads(notebook_path.read_text(encoding="utf-8"))
+    notebook = json.loads(notebook_path.read_text(encoding="utf-8"))
+    if not isinstance(notebook, dict):
+        raise ValueError("Notebook root must be a JSON object.")
+    if not isinstance(notebook.get("cells"), list):
+        raise ValueError("Notebook JSON must contain a 'cells' list.")
+    return notebook
 
 
 def normalise_source_lines(source: object) -> list[str]:
     if isinstance(source, str):
         return source.splitlines(keepends=True)
     if isinstance(source, list):
-        return [line if line.endswith("\n") else f"{line}\n" for line in source]
-    return []
+        normalised_lines: list[str] = []
+        for line in source:
+            if not isinstance(line, str):
+                raise TypeError("Notebook cell source lines must be strings.")
+            normalised_lines.append(line if line.endswith("\n") else f"{line}\n")
+        return normalised_lines
+    raise TypeError("Notebook cell source must be a string or list of strings.")
 
 
 def is_notebook_only_line(line: str) -> bool:
@@ -39,6 +59,8 @@ def comment_out_line(line: str) -> str:
 def sanitise_cell_source(lines: list[str]) -> list[str]:
     first_content_line = next((line.lstrip() for line in lines if line.strip()), "")
     if first_content_line.startswith("%%"):
+        # Cell magics change how the whole cell executes, so keep the source
+        # visible in the export but comment out every line to avoid execution.
         return [comment_out_line(line) for line in lines]
 
     sanitised_lines: list[str] = []

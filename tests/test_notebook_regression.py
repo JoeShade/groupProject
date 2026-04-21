@@ -1,3 +1,11 @@
+"""Regression tests for the helper-generated notebook export.
+
+These tests cover the current notebook-backed workflow without editing the
+notebook itself.
+They focus on regression protection for exported notebook behavior and helper
+integration, not on replacing the notebook as the canonical analysis record.
+"""
+
 from __future__ import annotations
 
 import importlib

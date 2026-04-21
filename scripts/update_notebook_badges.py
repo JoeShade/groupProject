@@ -1,3 +1,13 @@
+"""Refresh the notebook badge cell with team badges and a git-hours summary.
+
+This module owns locating the generated badge marker and rewriting that cell.
+It does not own notebook analysis content or repository documentation.
+It depends on a stable marker comment in blankTemplate.ipynb and on git history.
+Important constraints:
+- Badge refreshes should only touch the generated markdown cell.
+- When git history is unavailable, the hours badge falls back to zero.
+"""
+
 from __future__ import annotations
 
 import json
@@ -44,6 +54,8 @@ def compute_hours_value(repo_root: Path) -> str:
 
     total = timedelta()
     for times in by_day.values():
+        # Use the daily first-to-last commit window as a simple coursework
+        # activity estimate without trying to infer breaks between commits.
         total += max(times) - min(times)
 
     total_minutes = int(total.total_seconds() // 60)
