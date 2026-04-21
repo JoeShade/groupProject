@@ -72,9 +72,6 @@ This repository is set up to support the following coursework outputs:
 - discussion of the features that appear most important to prediction
 - presentation-ready findings for a group submission
 
-## Disclaimer
-This repository is for coursework, research, and educational analysis only. It is not a clinical decision-support system, medical device, or validated diagnostic tool. Any model outputs, plots, or feature interpretations in this repository must not be used for patient care or medical decision-making.
-
 ## Supporting docs
 - [AGENTS.md](AGENTS.md)
 - [systemDesign.md](systemDesign.md)
