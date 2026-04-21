@@ -1,0 +1,18 @@
+# Local virtual environment
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Pytest and coverage outputs
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Generated notebook test export
+tests/notebook_code.py
+
+# Jupyter local checkpoints
+.ipynb_checkpoints/

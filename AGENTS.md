@@ -10,6 +10,7 @@ This guide is for both human collaborators and AI assistants working in the repo
 - Keep the substantive analysis in `blankTemplate.ipynb`. Do not move core modelling logic into hidden scripts unless there is a clear coursework reason to do so.
 - Keep the notebook section order aligned with the coursework flow: problem definition, data preparation, analysis, modelling, results, and conclusion.
 - If rerunning cells changes counts, plots, metrics, or conclusions, update the surrounding markdown in the same pass.
+- After changing notebook logic, helper scripts, test expectations, or dependency definitions, run the regression tests with `python -m pytest` before finalising the change. If tests cannot be run, record the reason clearly.
 - Replace placeholder comments, informal notes, and unfinished prompts with submission-ready narrative before finalising work.
 - Use `scripts/` only for small utilities, such as notebook presentation helpers. Do not turn it into a parallel analysis pipeline.
 
@@ -35,6 +36,7 @@ This guide is for both human collaborators and AI assistants working in the repo
 - `docs/architecture-notes.md` should stay short, practical, and close to the coursework brief.
 - `docs/deviations.md` should contain only active mismatches between intended design and current state. Remove an entry once it is resolved.
 - `docs/dataset-notes.md` should explain how the two CSV files are being interpreted if both remain in the repo.
+- `tests/` should stay aligned with the current notebook behaviour and should be rerun after relevant repository changes.
 
 ## Documentation update expectations
 - Update the docs when the notebook structure changes materially.
@@ -49,4 +51,5 @@ This guide is for both human collaborators and AI assistants working in the repo
 - Are model comparisons based on appropriate classification metrics rather than a single headline score?
 - Are feature-importance claims framed cautiously and linked to the dataset limits?
 - Do the README and supporting docs still match the repository as it actually exists today?
+- Have the regression tests been run after the change, and have any failures or skips been addressed or explained?
 - Have placeholder prompts, open questions, and informal wording been removed from submission-facing material?

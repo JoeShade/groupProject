@@ -34,11 +34,60 @@ The objective is to develop and evaluate classification models that predict the 
 - identifying and discussing the most influential predictive features
 - reflecting critically on limitations, bias, and uncertainty
 
+## Setup
+Use Python `3.10` for this repository. A clean virtual environment is recommended before installing dependencies.
+
+1. Create and activate a virtual environment.
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+2. Install the repository from the manifest.
+
+```powershell
+python -m pip install -e .
+```
+
+3. If you also want the regression-test tooling, install the `dev` extras.
+
+```powershell
+python -m pip install -e ".[dev]"
+```
+
+After installation, the repository can be used in three main ways:
+
+1. Open the coursework notebook for the main analysis workflow.
+
+```powershell
+jupyter notebook blankTemplate.ipynb
+```
+
+2. Export notebook code cells into a plain Python file for regression testing support.
+
+```powershell
+python scripts\extract_notebook_code.py
+```
+
+This writes `tests/notebook_code.py` by default.
+
+3. Run the regression tests that validate the helper-generated notebook export and the current notebook behaviour.
+
+```powershell
+python -m pytest
+```
+
+After changing notebook logic, helper scripts, test expectations, or dependency definitions, rerun `python -m pytest` before treating the work as complete.
+
 ## Repository structure
 - `blankTemplate.ipynb`: main notebook template and primary coursework artefact. It contains the planned narrative from problem definition through conclusion.
 - `datasets/givenData.csv`: tabular input data currently used by the notebook.
 - `datasets/kaggleData.csv`: second copy of the same tabular dataset currently present in the repository.
+- `pyproject.toml`: dependency manifest for the notebook workflow, helper scripts, and regression tests.
 - `scripts/update_notebook_badges.py`: small helper script for refreshing the team badge cell in the notebook.
+- `scripts/extract_notebook_code.py`: helper script for exporting notebook code cells into a plain Python file that regression tests can inspect.
+- `tests/`: regression tests that exercise the helper-generated notebook code export and pin the current analysis behaviour.
 - `docs/`: supporting documentation for workflow, design notes, dataset handling, and live deviations.
 
 ## Dataset overview

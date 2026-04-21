@@ -50,7 +50,10 @@ This is the canonical coursework artefact. It should contain:
 This directory holds the raw tabular inputs for the project. The notebook currently reads `datasets/givenData.csv`, while `datasets/kaggleData.csv` is also present in the repo. Raw inputs should be preserved as source material rather than edited in place.
 
 ### `scripts/`
-This directory is for minor helpers only. The current script, `scripts/update_notebook_badges.py`, supports notebook presentation metadata. It is not part of the analytical workflow and should not become a hidden modelling path.
+This directory is for minor helpers only. The current scripts support notebook presentation metadata and extraction of notebook code into a plain Python export for regression testing. They are not part of the analytical workflow and should not become a hidden modelling path.
+
+### `tests/`
+This directory holds regression tests for the notebook-led workflow. Tests should validate helper-generated exports of notebook code and check that key preprocessing and analysis behaviours remain stable without moving the canonical analysis out of the notebook. After changing notebook logic, helper scripts, or dependency definitions, contributors should rerun `python -m pytest` and treat the result as part of the normal verification step.
 
 ### `docs/`
 This directory holds supporting documentation that clarifies project intent, repository boundaries, dataset handling, and active mismatches between intended design and current state.
@@ -90,3 +93,4 @@ The following conditions should remain true as the repository evolves:
 - Interpretation includes clinically relevant caution and avoids causal or deployment-level claims.
 - Supporting docs describe the repository as it actually exists and are updated when reality changes.
 - If multiple dataset files remain in the repo, their relationship is documented clearly so collaborators do not treat them as separate evidence sources by mistake.
+- Relevant changes are followed by a regression-test run so notebook-supporting code and documented behaviour do not drift apart silently.

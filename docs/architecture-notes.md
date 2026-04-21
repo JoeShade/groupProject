@@ -4,7 +4,9 @@
 - `blankTemplate.ipynb` is the main analytical artefact and should contain the end-to-end coursework narrative.
 - `datasets/` contains raw tabular inputs and should not be edited in place.
 - `scripts/` is for small helper utilities only, not for hiding core preprocessing or modelling logic.
+- `tests/` should validate helper-generated exports of notebook code rather than replace the notebook as the canonical analysis record.
 - `docs/` supports the notebook by documenting structure, expectations, and live deviations.
+- Changes to notebook logic, helper scripts, or dependency definitions should be followed by a `python -m pytest` run before the change is treated as complete.
 
 ## Notebook sections and rubric alignment
 - Section 1 should define the problem, the classification objective, and why the task matters.

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lung-cancer-classification-coursework"
+version = "0.1.0"
+description = "Notebook-led supervised classification coursework for lung cancer prediction."
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+    "jupyter==1.1.1",
+    "numpy==1.26.4",
+    "pandas==2.3.3",
+    "matplotlib==3.10.8",
+    "seaborn==0.13.2",
+    "scikit-learn==1.7.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.0.2",
+]
+
+[tool.setuptools]
+packages = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
