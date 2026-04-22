@@ -39,6 +39,8 @@ EXPECTED_CLEAN_COLUMNS = [
     "SWALLOWING_DIFFICULTY",
     "CHEST_PAIN",
     "LUNG_CANCER",
+    "HEAVY_SMOKER",
+    "RESPIRATORY_DISTRESS",
 ]
 
 EXPECTED_CORRELATION_COLUMNS = [
@@ -72,6 +74,8 @@ BINARY_COLUMNS = [
     "SHORTNESS_OF_BREATH",
     "SWALLOWING_DIFFICULTY",
     "CHEST_PAIN",
+    "HEAVY_SMOKER",
+    "RESPIRATORY_DISTRESS",
 ]
 
 
@@ -102,6 +106,7 @@ def exported_notebook_code(tmp_path_factory: pytest.TempPathFactory) -> Path:
 def notebook_module(exported_notebook_code: Path):
     pytest.importorskip("numpy")
     pytest.importorskip("pandas")
+    pytest.importorskip("scipy")
     matplotlib = pytest.importorskip("matplotlib")
     matplotlib.use("Agg")
     pyplot = importlib.import_module("matplotlib.pyplot")
@@ -156,7 +161,7 @@ def test_current_dedup_step_matches_notebook_tail_drop_logic(notebook_module) ->
 def test_clean_dataset_columns_and_binary_recoding(notebook_module) -> None:
     dataset_clean = notebook_module.dataset_clean
 
-    assert dataset_clean.shape == (284, 16)
+    assert dataset_clean.shape == (284, 18)
     assert dataset_clean.columns.tolist() == EXPECTED_CLEAN_COLUMNS
 
     for column_name in [

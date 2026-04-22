@@ -12,6 +12,7 @@ dependencies = [
     "jupyter==1.1.1",
     "numpy==1.26.4",
     "pandas==2.3.3",
+    "scipy==1.17.1",
     "matplotlib==3.10.8",
     "seaborn==0.13.2",
     "scikit-learn==1.7.2",
