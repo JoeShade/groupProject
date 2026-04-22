@@ -41,6 +41,8 @@ EXPECTED_CLEAN_COLUMNS = [
     "LUNG_CANCER",
     "HEAVY_SMOKER",
     "RESPIRATORY_DISTRESS",
+    "LIFESTYLE_RISK",
+    "AGE_BINS",
 ]
 
 EXPECTED_CORRELATION_COLUMNS = [
@@ -76,6 +78,7 @@ BINARY_COLUMNS = [
     "CHEST_PAIN",
     "HEAVY_SMOKER",
     "RESPIRATORY_DISTRESS",
+    "LIFESTYLE_RISK",
 ]
 
 
@@ -161,7 +164,7 @@ def test_current_dedup_step_matches_notebook_tail_drop_logic(notebook_module) ->
 def test_clean_dataset_columns_and_binary_recoding(notebook_module) -> None:
     dataset_clean = notebook_module.dataset_clean
 
-    assert dataset_clean.shape == (284, 18)
+    assert dataset_clean.shape == (284, 20)
     assert dataset_clean.columns.tolist() == EXPECTED_CLEAN_COLUMNS
 
     for column_name in [
@@ -175,6 +178,14 @@ def test_clean_dataset_columns_and_binary_recoding(notebook_module) -> None:
 
     for column_name in BINARY_COLUMNS + ["GENDER", "LUNG_CANCER"]:
         assert set(dataset_clean[column_name].dropna().unique()) <= {0, 1}
+
+    assert set(dataset_clean["AGE_BINS"].dropna().astype(str).unique()) <= {
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+    }
 
 
 def test_clean_dataset_class_and_gender_counts(notebook_module) -> None:
