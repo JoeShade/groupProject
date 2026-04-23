@@ -16,3 +16,6 @@ tests/notebook_code.py
 
 # Jupyter local checkpoints
 .ipynb_checkpoints/
+
+# Exported notebook PDF
+blankTemplate.pdf
