@@ -108,6 +108,7 @@ The notebook already treats duplicate handling, column cleanup, and binary recod
 3. carry out justified preprocessing, including duplicate handling, encoding, and any feature engineering
 4. perform exploratory analysis and visualisation to understand class balance, patterns, and potential modelling issues
 5. train and compare classification models using appropriate validation and evaluation metrics
+   The current notebook compares logistic regression, random forest, and gradient boosting with stratified evaluation, while prioritising recall and F1-score over accuracy alone.
 6. interpret the final model through feature importance and error analysis
 7. conclude against the brief and summarise limitations and next steps
 

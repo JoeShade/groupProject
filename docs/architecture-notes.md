@@ -27,6 +27,7 @@
 - Record model iterations in notebook section 4.5 or another clearly linked location.
 - For each iteration, note the feature set, model choice, tuning change, and impact on metrics.
 - Remove stale claims when later runs change the conclusion.
+- The current comparison shortlist is logistic regression, random forest, and gradient boosting; if that shortlist changes, document the reason in the notebook rather than only in commit history.
 
 ## Presentation alignment
 - Prefer plots and tables that can be reused in slides without rewriting the argument.
