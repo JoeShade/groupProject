@@ -21,6 +21,7 @@
 - Any duplicate-removal rule should be evidence-based and easy to rerun.
 - Feature engineering should improve either interpretability, model utility, or both; avoid adding features that cannot be defended in the report.
 - Use classification metrics beyond accuracy, especially because the current target distribution is imbalanced.
+- On this small dataset, early hold-out experiments should be rerun across multiple random seeds and reported as averaged metrics rather than relying on one split.
 - Fit learned preprocessing inside the modelling workflow to avoid leakage.
 
 ## Experiment tracking expectations

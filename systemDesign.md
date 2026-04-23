@@ -74,6 +74,7 @@ Use exploratory analysis to understand distributions, subgroup patterns, relatio
 
 ### 5. Modelling and evaluation
 Train and compare candidate classifiers using an evaluation strategy appropriate for a classification task. Metrics should reflect the class distribution and the cost of different error types. Where preprocessing is learned from data, it should be contained within a safe modelling pipeline.
+For small-sample hold-out experiments, rerun the model across multiple stratified random seeds and report averaged metrics so the conclusion is not tied to one unusually favourable split.
 
 ### 6. Interpretation and critical discussion
 Interpret the final model through feature importance, error analysis, and limitations. The discussion should stay cautious: patterns in this dataset can inform coursework conclusions, but they do not justify claims of clinical validity or medical deployment.
