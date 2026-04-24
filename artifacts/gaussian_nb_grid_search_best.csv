@@ -1,0 +1,2 @@
+var_smoothing,prior_mode,prior_negative,prior_positive,Accuracy,Precision,Recall,F2-score,ROC-AUC,F2-CQS,Training time (seconds),grid_size,num_splits,test_size,feature_set,search_wall_time_seconds
+0.00063679554,manual,0.054000020027160645,0.9459999799728394,0.890892857142857,0.9122204579905778,0.9664583333333333,0.95486724,0.9082291666666668,0.9312558837778341,0.0005552699999316246,968242,100,0.2,Original predictors only,16.57923120000123

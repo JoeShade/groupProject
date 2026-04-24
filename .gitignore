@@ -19,3 +19,6 @@ tests/notebook_code.py
 
 # Exported notebook PDF
 blankTemplate.pdf
+
+# Large generated search artifact kept local only
+artifacts/gaussian_nb_grid_search_ranked.csv
