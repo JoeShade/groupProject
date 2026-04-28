@@ -4,6 +4,7 @@
 # Python cache files
 __pycache__/
 *.py[cod]
+*.egg-info/
 
 # Pytest and coverage outputs
 .pytest_cache/
@@ -18,7 +19,7 @@ tests/notebook_code.py
 .ipynb_checkpoints/
 
 # Exported notebook PDF
-blankTemplate.pdf
+LungCancerML.pdf
 
 # Large generated search artifact kept local only
 artifacts/gaussian_nb_grid_search_ranked.csv

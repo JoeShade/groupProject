@@ -1,7 +1,7 @@
 """Unit tests for the notebook badge refresh helper.
 
 These tests cover the git-hours summary and rendered badge HTML.
-They focus on the helper in isolation and avoid touching blankTemplate.ipynb.
+They focus on the helper in isolation and avoid touching LungCancerML.ipynb.
 """
 
 from __future__ import annotations

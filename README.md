@@ -15,116 +15,149 @@
   <a href="https://github.com/SimonAndreou"><img alt="Simon Andreou" src="https://img.shields.io/badge/%20-Simon%20Andreou-4A4A4A?style=flat-square&logo=github&logoColor=white&labelColor=DC2626" /></a>
 </div>
 
-## Introduction
-This repository supports a group machine learning coursework project built around a Jupyter notebook-led analysis of lung cancer prediction. The work is organised as an end-to-end supervised classification exercise: inspect the data, justify preprocessing choices, explore patterns, train and compare classifiers, and interpret the features that appear most predictive.
+**Outcome:**
+- Built an end-to-end supervised classification workflow for a compact lung-cancer-labelled dataset.
+- Selected a tuned Gaussian Naive Bayes model after repeated stratified model comparison.
+- Achieved average recall `0.9527`, `F2-score 0.9500`, and `ROC-AUC 0.9008` across `100` hold-out runs.
+- Identified the strongest predictive symptom features while keeping interpretation cautious and non-clinical.
 
-The repository is for group members, tutors, and markers reviewing the academic workflow. It is not intended as a reusable software package or deployable product.
+## Project Context
 
-## Disclaimer
-This repo is for a four-day machine learning project for the 25WSP074 - Machine Learning - Principles and Applications for Engineers module at [Loughborough University](https://www.lboro.ac.uk/).
+This project was completed for the `25WSP074 - Machine Learning - Principles and Applications for Engineers` module at [Loughborough University](https://www.lboro.ac.uk/). The aim was to develop and evaluate a supervised classifier that predicts the `LUNG_CANCER` label from demographic, lifestyle, and symptom variables.
 
-As such it will not be actively maintained or supported.
+The work is presented as a notebook-led analysis rather than a deployable software product. The main artefact is [LungCancerML.ipynb](LungCancerML.ipynb), which moves from problem framing and data preparation through exploratory analysis, model selection, final evaluation, interpretation, and limitations.
 
-## Project objective
-The objective is to develop and evaluate classification models that predict the `LUNG_CANCER` outcome from patient demographic, lifestyle, and symptom variables. The coursework emphasis is on:
+## Dataset Preparation
 
-- framing the classification problem clearly
-- preparing the data in a justified and reproducible way
-- comparing models with appropriate classification metrics
-- identifying and discussing the most influential predictive features
-- reflecting critically on limitations, bias, and uncertainty
+The raw dataset contained `309` rows and `16` columns. Initial inspection found no missing values, but it did reveal inconsistent column naming, binary variables encoded as `1/2`, and a suspicious duplicate-heavy block at the end of the file.
 
-## Setup
-Use Python `3.10` for this repository. A clean virtual environment is recommended before installing dependencies.
+The final `30` raw rows were removed as one appended block. Within that block, `25 of 30` rows were exact duplicate flags, compared with only `8 of 279` duplicate flags in the earlier rows. This left a working dataset of `279` rows for analysis.
 
-1. Create and activate a virtual environment.
+<p align="center">
+  <img src="assets/notebook_exports/figure-003-figure-3-age-distribution-before-and-after-removing-the-final-30-rows-the-two-histograms-r.png" alt="Age distribution before and after removing the final thirty rows" width="760">
+</p>
+
+After cleaning, the target remained heavily imbalanced: `244` cancer-labelled records and `35` no-cancer records. This made accuracy alone a weak success measure, because the majority-class baseline accuracy was already `87.5%`.
+
+<p align="center">
+  <img src="assets/notebook_exports/figure-018-figure-18-target-class-counts-after-final-row-removal-annotated-with-each-class-share-in-t.png" alt="Target class counts after final-row removal" width="640">
+</p>
+
+## Exploratory Analysis
+
+Exploratory analysis focused on whether the available symptom and lifestyle fields carried usable signal before modelling. Several binary features showed much larger differences between the cancer and no-cancer groups than age did, including `ALLERGY`, `SWALLOWING_DIFFICULTY`, `ALCOHOL_CONSUMING`, `WHEEZING`, `COUGHING`, and `CHEST_PAIN`.
+
+<p align="center">
+  <img src="assets/notebook_exports/figure-021-figure-21-overall-yes-share-of-each-symptom-and-lifestyle-variable-with-exact-binomial-95.png" alt="Overall yes-share of each symptom and lifestyle variable" width="760">
+</p>
+
+<p align="center">
+  <img src="assets/notebook_exports/figure-023-figure-23-within-class-yes-share-of-each-original-binary-feature-by-lung-cancer-status-ord.png" alt="Within-class yes-share by lung cancer status" width="760">
+</p>
+
+## Feature Engineering
+
+Feature engineering was tested cautiously rather than assumed to improve the model. The notebook created provisional grouped signals from correlated symptom and lifestyle variables, including `BATCH_1`, `BATCH_2`, and `BATCH_3`, and also carried a binned version of age (`AGE_BINS`) alongside the raw age field.
+
+These additions were evaluated against the original predictor set using repeated stratified hold-out runs. Including the engineered batch features reduced the mean `F2-score` from `0.9460` to `0.9319`, so the final model used the original predictors only. Further checks also supported retaining non-significant original variables, avoiding SMOTE, and keeping plausible age outliers.
+
+<p align="center">
+  <img src="assets/notebook_exports/table-041-table-41-section-5-3-feature-experiment-decision-summary.png" alt="Feature experiment decision summary" width="900">
+</p>
+
+## Model Selection
+
+Several candidate classifiers were evaluated across repeated stratified hold-out runs so that the result was not driven by one favourable train-test split. The comparison prioritised recall-weighted performance because false negatives matter more than headline accuracy in this health-related classification setting.
+
+The confidence-weighted ensemble had the highest average `F2-score`, but Gaussian Naive Bayes was close behind, much faster, simpler, and easier to explain. A Welch test on the top two model scores found no significant difference, supporting the choice of the simpler model for the final analysis.
+
+<p align="center">
+  <img src="assets/notebook_exports/table-022-table-22-section-3-model-comparison-ordered-by-average-f2-score-across-30-stratified-hold.png" alt="Model comparison ordered by F2-score" width="900">
+</p>
+
+## Optimisation
+
+After Gaussian Naive Bayes was selected, the final tuning step searched over `var_smoothing` and manual class-prior values. The search used the recall-weighted `F2-CQS` objective so that optimisation stayed aligned with the project goal rather than simply improving raw accuracy.
+
+The selected configuration was `var_smoothing = 0.000637` with class priors `[0.054, 0.946]`. The external grid search evaluated `968,242` configurations across `100` stratified hold-out reruns per configuration and was accelerated with CuPy on an NVIDIA RTX 2070.
+
+<p align="center">
+  <img src="assets/notebook_exports/figure-030-figure-30-local-f2-cqs-response-curves-from-the-external-gpu-grid-search-showing-the-peak.png" alt="Gaussian Naive Bayes grid-search response curves" width="760">
+</p>
+
+## Final Model
+
+The final selected model was `GaussianNB(var_smoothing=0.000637, priors=[0.054, 0.946])`. It used the original predictors only, retained statistically non-significant original features, did not use SMOTE, and kept the plausible age outliers in the dataset.
+
+The final estimate was averaged across `100` stratified `80/20` hold-out runs:
+
+<p align="center">
+  <img src="assets/notebook_exports/table-044-table-44-final-gaussian-naive-bayes-average-hold-out-performance-metrics-across-100-strati.png" alt="Final Gaussian Naive Bayes average hold-out performance metrics" width="620">
+</p>
+
+## Interpretation
+
+Permutation importance was used as an explanation aid rather than as a causal claim. The strongest final-model contributors to the recall-weighted objective were:
+
+- `SHORTNESS_OF_BREATH`
+- `FATIGUE`
+- `CHRONIC_DISEASE`
+- `CHEST_PAIN`
+
+<p align="center">
+  <img src="assets/notebook_exports/figure-033-figure-33-top-permutation-importances-for-the-representative-final-model-split-ranked-by-t.png" alt="Top permutation importances for the final model" width="760">
+</p>
+
+## Limitations
+
+This is an academic machine learning analysis, not a clinically validated diagnostic tool. The dataset is small, heavily imbalanced, internally validated only, and has limited background provenance. The final model's high-recall behaviour also increases the false-positive trade-off, and Gaussian Naive Bayes may under-model interactions because of its independence assumption.
+
+Feature importance should therefore be read as evidence about patterns in this coursework dataset, not as proof of clinical significance or causality.
+
+## Explore The Work
+
+<details>
+<summary>Repository and reproduction notes</summary>
+
+Use Python `3.10` for the intended coursework environment.
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-```
-
-2. Install the repository from the manifest.
-
-```powershell
-python -m pip install -e .
-```
-
-3. If you also want the regression-test tooling, install the `dev` extras.
-
-```powershell
 python -m pip install -e ".[dev]"
 ```
 
-After installation, the repository can be used in three main ways:
-
-1. Open the coursework notebook for the main analysis workflow.
+Open the main notebook:
 
 ```powershell
-jupyter notebook blankTemplate.ipynb
+jupyter notebook LungCancerML.ipynb
 ```
 
-2. Export notebook code cells into a plain Python file for regression testing support.
+Export notebook code for regression testing:
 
 ```powershell
 python scripts\extract_notebook_code.py
 ```
 
-This writes `tests/notebook_code.py` by default.
-
-3. Run the regression tests that validate the helper-generated notebook export and the current notebook behaviour.
+Run the regression tests:
 
 ```powershell
 python -m pytest
 ```
 
-After changing notebook logic, helper scripts, test expectations, or dependency definitions, rerun `python -m pytest` before treating the work as complete.
+Regenerate the README-ready notebook figures and tables:
 
-## Repository structure
-- `blankTemplate.ipynb`: main notebook template and primary coursework artefact. It contains the planned narrative from problem definition through conclusion.
-- `datasets/givenData.csv`: tabular input data currently used by the notebook.
-- `datasets/kaggleData.csv`: second copy of the same tabular dataset currently present in the repository.
-- `pyproject.toml`: dependency manifest for the notebook workflow, helper scripts, and regression tests.
-- `scripts/update_notebook_badges.py`: small helper script for refreshing the team badge cell in the notebook.
-- `scripts/extract_notebook_code.py`: helper script for exporting notebook code cells into a plain Python file that regression tests can inspect.
-- `tests/`: regression tests that exercise the helper-generated notebook code export and pin the current analysis behaviour.
-- `docs/`: supporting documentation for workflow, design notes, dataset handling, and live deviations.
+```powershell
+python scripts\extract_notebook_assets.py --clean
+```
 
-## Dataset overview
-The repository currently includes two CSV files in `datasets/`. Both expose the same 16-column lung cancer classification schema and, in the current repository state, match at the file-content level.
+Key repository files:
 
-- Target column: `LUNG_CANCER`
-- Predictor types: one demographic field (`AGE`), one sex/gender field (`GENDER`), and a set of binary symptom or lifestyle indicators such as `SMOKING`, `WHEEZING`, `COUGHING`, `SHORTNESS OF BREATH`, and `CHEST PAIN`
-- Current raw size: 309 rows x 16 columns
-- Current raw class balance: 270 `YES` and 39 `NO`
+- [LungCancerML.ipynb](LungCancerML.ipynb): main notebook and primary coursework artefact.
+- [datasets/givenData.csv](datasets/givenData.csv): canonical input file used by the notebook.
+- [datasets/kaggleData.csv](datasets/kaggleData.csv): matching secondary dataset copy retained for reference.
+- [assets/notebook_exports/manifest.csv](assets/notebook_exports/manifest.csv): exported figure/table asset index.
+- [docs/dataset-notes.md](docs/dataset-notes.md): dataset interpretation notes.
+- [docs/deviations.md](docs/deviations.md): active mismatches between intended and current project state.
 
-The notebook already treats duplicate handling, column cleanup, and binary recoding as important preprocessing steps. Those decisions should remain explicit and justified in the final analysis.
-
-## Notebook workflow
-`blankTemplate.ipynb` is the centre of the repository. The expected workflow is:
-
-1. define the supervised classification task and the coursework success criteria
-2. inspect the dataset structure, column meanings, and data quality issues
-3. carry out justified preprocessing, including duplicate handling, encoding, and any feature engineering
-4. perform exploratory analysis and visualisation to understand class balance, patterns, and potential modelling issues
-5. train and compare classification models using appropriate validation and evaluation metrics
-   The current notebook first tests a linear SVM on the cleaned original predictors using 30 stratified hold-out reruns and averaged metrics, then compares logistic regression, random forest, and gradient boosting on the later engineered feature table while prioritising recall and F1-score over accuracy alone.
-6. interpret the final model through feature importance and error analysis
-7. conclude against the brief and summarise limitations and next steps
-
-The supporting documentation explains how the repo should be used, but the notebook remains the primary place where evidence, results, and narrative should live.
-
-## Outputs / deliverables
-This repository is set up to support the following coursework outputs:
-
-- a completed notebook with narrative, code, figures, and interpretation
-- classification performance summaries such as precision, recall, F1-score, confusion matrices, and model comparison tables
-- discussion of the features that appear most important to prediction
-- presentation-ready findings for a group submission
-
-## Supporting docs
-- [AGENTS.md](AGENTS.md)
-- [systemDesign.md](systemDesign.md)
-- [Architecture notes](docs/architecture-notes.md)
-- [Dataset notes](docs/dataset-notes.md)
-- [Active deviations](docs/deviations.md)
+</details>

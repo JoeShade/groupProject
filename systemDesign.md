@@ -28,13 +28,13 @@ The repository is not intended to provide:
 ## Project architecture and workflow
 The project is organised around one primary analytical artefact and a small number of supporting components.
 
-`datasets/*.csv` -> `blankTemplate.ipynb` -> figures, tables, model comparisons, feature interpretation, coursework conclusions
+`datasets/*.csv` -> `LungCancerML.ipynb` -> figures, tables, model comparisons, feature interpretation, coursework conclusions
 
 The notebook should remain the single place where the analytical story is visible end to end. Supporting docs explain how the repository is intended to work and where it currently diverges from that intended state.
 
 ## Major repository components and responsibilities
 
-### `blankTemplate.ipynb`
+### `LungCancerML.ipynb`
 This is the canonical coursework artefact. It should contain:
 
 - the problem framing and project objective

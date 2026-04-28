@@ -19,7 +19,7 @@ import pytest
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-NOTEBOOK_PATH = REPO_ROOT / "blankTemplate.ipynb"
+NOTEBOOK_PATH = REPO_ROOT / "LungCancerML.ipynb"
 HELPER_SCRIPT = REPO_ROOT / "scripts" / "extract_notebook_code.py"
 
 EXPECTED_CLEAN_COLUMNS = [
@@ -143,7 +143,7 @@ def notebook_module(exported_notebook_code: Path):
 def test_helper_exports_notebook_code(exported_notebook_code: Path) -> None:
     exported_text = exported_notebook_code.read_text(encoding="utf-8")
 
-    assert 'Source notebook: blankTemplate.ipynb' in exported_text
+    assert 'Source notebook: LungCancerML.ipynb' in exported_text
     assert "# %% Notebook cell" in exported_text
     assert 'dataset = pd.read_csv("datasets/givenData.csv", thousands=",")' in exported_text
 

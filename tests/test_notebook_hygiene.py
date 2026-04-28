@@ -1,7 +1,7 @@
 """Hygiene tests for the coursework notebook narrative.
 
 These tests cover submission-facing notebook text rather than model outputs.
-They focus on ensuring blankTemplate.ipynb no longer contains drafting prompts,
+They focus on ensuring LungCancerML.ipynb no longer contains drafting prompts,
 placeholder notes, or other unfinished coursework language.
 """
 
@@ -13,7 +13,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-NOTEBOOK_PATH = REPO_ROOT / "blankTemplate.ipynb"
+NOTEBOOK_PATH = REPO_ROOT / "LungCancerML.ipynb"
 
 PLACEHOLDER_PATTERNS = [
     r"\bTODO\b",

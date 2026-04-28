@@ -1,7 +1,7 @@
 # Architecture Notes
 
 ## Repository boundaries
-- `blankTemplate.ipynb` is the main analytical artefact and should contain the end-to-end coursework narrative.
+- `LungCancerML.ipynb` is the main analytical artefact and should contain the end-to-end coursework narrative.
 - `datasets/` contains raw tabular inputs and should not be edited in place.
 - `scripts/` is for small helper utilities only, not for hiding core preprocessing or modelling logic.
 - `tests/` should validate helper-generated exports of notebook code rather than replace the notebook as the canonical analysis record.

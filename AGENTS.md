@@ -1,13 +1,13 @@
 # Repository Working Guide
 
 ## Repository purpose at a glance
-This repository supports a group coursework project on supervised classification for lung cancer prediction. The main artefact is `blankTemplate.ipynb`, which is intended to tell the full analytical story from problem definition to conclusion. The surrounding files exist to support that notebook, not to replace it with a software package or engineering framework.
+This repository supports a group coursework project on supervised classification for lung cancer prediction. The main artefact is `LungCancerML.ipynb`, which is intended to tell the full analytical story from problem definition to conclusion. The surrounding files exist to support that notebook, not to replace it with a software package or engineering framework.
 
 This guide is for both human collaborators and AI assistants working in the repo.
 
 ## Working safely in a notebook-based ML repository
 - Treat `datasets/` as raw inputs. Do not overwrite or silently clean the CSV files in place.
-- Keep the substantive analysis in `blankTemplate.ipynb`. Do not move core modelling logic into hidden scripts unless there is a clear coursework reason to do so.
+- Keep the substantive analysis in `LungCancerML.ipynb`. Do not move core modelling logic into hidden scripts unless there is a clear coursework reason to do so.
 - Keep the notebook section order aligned with the coursework flow: problem definition, data preparation, analysis, modelling, results, and conclusion.
 - If rerunning cells changes counts, plots, metrics, or conclusions, update the surrounding markdown in the same pass.
 - After changing notebook logic, helper scripts, test expectations, or dependency definitions, run the regression tests with `python -m pytest` before finalising the change. If tests cannot be run, record the reason clearly.
@@ -45,7 +45,7 @@ This guide is for both human collaborators and AI assistants working in the repo
 - Do not add documentation for deployment, APIs, CI/CD, licensing, or contributor governance unless the coursework scope changes and the repository actually gains those elements.
 
 ## Self-review checklist before finalising changes
-- Does `blankTemplate.ipynb` still tell a coherent end-to-end coursework story?
+- Does `LungCancerML.ipynb` still tell a coherent end-to-end coursework story?
 - Are preprocessing choices explicit, justified, and reproducible?
 - Is leakage avoided throughout modelling and evaluation?
 - Are model comparisons based on appropriate classification metrics rather than a single headline score?

@@ -17,7 +17,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_NOTEBOOK_PATH = REPO_ROOT / "blankTemplate.ipynb"
+DEFAULT_NOTEBOOK_PATH = REPO_ROOT / "LungCancerML.ipynb"
 DEFAULT_OUTPUT_PATH = REPO_ROOT / "tests" / "notebook_code.py"
 NOTEBOOK_LINE_PREFIXES = ("%", "!", "?")
 

@@ -1,0 +1,87 @@
+kind,label,caption,cell_index,filename
+table,Table 1,"Table 1, Student Contribution Matrix",4,table-001-table-1-student-contribution-matrix.png
+table,Table cell 12 item 1,Table cell 12 item 1,12,table-012-table-cell-12-item-1.png
+table,Table 3,"Table 3, Raw column definitions",14,table-003-table-3-raw-column-definitions.png
+table,Table cell 19 item 1,Table cell 19 item 1,19,table-019-table-cell-19-item-1.png
+table,Table 5,"Table 5, De-duplication summary",22,table-005-table-5-de-duplication-summary.png
+table,Table 6,"Table 6, Duplicate distribution evidence",23,table-006-table-6-duplicate-distribution-evidence.png
+figure,Figure 3,"Figure 3. Age distribution before and after removing the final 30 rows. The two histograms retain a very similar overall shape after the final 30 rows are removed, with no obvious shift in the main concentration of ages.",25,figure-003-figure-3-age-distribution-before-and-after-removing-the-final-30-rows-the-two-histograms-r.png
+table,Table 7,"Table 7, Working dataset preview after consistency checks",31,table-007-table-7-working-dataset-preview-after-consistency-checks.png
+table,Table cell 35 item 1,Table cell 35 item 1,35,table-035-table-cell-35-item-1.png
+table,Table cell 38 item 1,Table cell 38 item 1,38,table-038-table-cell-38-item-1.png
+table,Table cell 39 item 1,Table cell 39 item 1,39,table-039-table-cell-39-item-1.png
+table,Table cell 41 item 1,Table cell 41 item 1,41,table-041-table-cell-41-item-1.png
+table,Table 8,"Table 8, Linear SVM hyperparameters and evaluation settings",46,table-008-table-8-linear-svm-hyperparameters-and-evaluation-settings.png
+table,Table 9,"Table 9, Linear SVM average hold-out performance metrics across 30 runs",46,table-009-table-9-linear-svm-average-hold-out-performance-metrics-across-30-runs.png
+figure,Figure 4,Figure 4. SVM average confusion matrix across 30 stratified hold-out runs.,46,figure-004-figure-4-svm-average-confusion-matrix-across-30-stratified-hold-out-runs.png
+figure,Figure 5,Figure 5. Average linear SVM coefficient importance across 30 stratified hold-out runs.,46,figure-005-figure-5-average-linear-svm-coefficient-importance-across-30-stratified-hold-out-runs.png
+table,Table 10,"Table 10, Binary tree hyperparameters and evaluation settings",48,table-010-table-10-binary-tree-hyperparameters-and-evaluation-settings.png
+table,Table 11,"Table 11, Binary tree average hold-out performance metrics across 30 runs",48,table-011-table-11-binary-tree-average-hold-out-performance-metrics-across-30-runs.png
+figure,Figure 6,Figure 6. Binary tree average confusion matrix across 30 stratified hold-out runs.,48,figure-006-figure-6-binary-tree-average-confusion-matrix-across-30-stratified-hold-out-runs.png
+figure,Figure 7,"Figure 7. Representative binary decision tree fitted on the stratified train split for seed 8, chosen because its F2-score was closest to the 30-run mean.",48,figure-007-figure-7-representative-binary-decision-tree-fitted-on-the-stratified-train-split-for-seed.png
+table,Table 12,"Table 12, Random forest hyperparameters and evaluation settings",50,table-012-table-12-random-forest-hyperparameters-and-evaluation-settings.png
+table,Table 13,"Table 13, Random forest average hold-out performance metrics across 30 runs",50,table-013-table-13-random-forest-average-hold-out-performance-metrics-across-30-runs.png
+figure,Figure 8,Figure 8. Random forest average confusion matrix across 30 stratified hold-out runs.,50,figure-008-figure-8-random-forest-average-confusion-matrix-across-30-stratified-hold-out-runs.png
+figure,Figure 9,Figure 9. Average random forest feature importance across 30 stratified hold-out runs.,50,figure-009-figure-9-average-random-forest-feature-importance-across-30-stratified-hold-out-runs.png
+table,Table 14,"Table 14, ANN hyperparameters and evaluation settings",52,table-014-table-14-ann-hyperparameters-and-evaluation-settings.png
+table,Table 15,"Table 15, ANN average hold-out performance metrics across 30 runs",52,table-015-table-15-ann-average-hold-out-performance-metrics-across-30-runs.png
+figure,Figure 10,Figure 10. ANN average confusion matrix across 30 stratified hold-out runs.,52,figure-010-figure-10-ann-average-confusion-matrix-across-30-stratified-hold-out-runs.png
+figure,Figure 11,"Figure 11. Representative ANN training loss curve for the stratified train split with seed 3, chosen because its F2-score was closest to the 30-run mean.",52,figure-011-figure-11-representative-ann-training-loss-curve-for-the-stratified-train-split-with-seed.png
+table,Table 16,"Table 16, Logistic regression hyperparameters and evaluation settings",54,table-016-table-16-logistic-regression-hyperparameters-and-evaluation-settings.png
+table,Table 17,"Table 17, Logistic regression average hold-out performance metrics across 30 runs",54,table-017-table-17-logistic-regression-average-hold-out-performance-metrics-across-30-runs.png
+figure,Figure 12,Figure 12. Logistic regression average confusion matrix across 30 stratified hold-out runs.,54,figure-012-figure-12-logistic-regression-average-confusion-matrix-across-30-stratified-hold-out-runs.png
+figure,Figure 13,Figure 13. Average logistic regression coefficient importance across 30 stratified hold-out runs.,54,figure-013-figure-13-average-logistic-regression-coefficient-importance-across-30-stratified-hold-out.png
+table,Table 18,"Table 18, Gaussian Naive Bayes hyperparameters and evaluation settings",56,table-018-table-18-gaussian-naive-bayes-hyperparameters-and-evaluation-settings.png
+table,Table 19,"Table 19, Gaussian Naive Bayes average hold-out performance metrics across 30 runs",56,table-019-table-19-gaussian-naive-bayes-average-hold-out-performance-metrics-across-30-runs.png
+figure,Figure 14,Figure 14. Gaussian Naive Bayes average confusion matrix across 30 stratified hold-out runs.,56,figure-014-figure-14-gaussian-naive-bayes-average-confusion-matrix-across-30-stratified-hold-out-runs.png
+figure,Figure 15,Figure 15. Average Gaussian Naive Bayes class-conditional mean difference across 30 stratified hold-out runs.,56,figure-015-figure-15-average-gaussian-naive-bayes-class-conditional-mean-difference-across-30-stratif.png
+table,Table 20,"Table 20, Confidence-weighted ensemble hyperparameters and evaluation settings",58,table-020-table-20-confidence-weighted-ensemble-hyperparameters-and-evaluation-settings.png
+table,Table 21,"Table 21, Confidence-weighted ensemble average hold-out performance metrics across 30 runs",58,table-021-table-21-confidence-weighted-ensemble-average-hold-out-performance-metrics-across-30-runs.png
+figure,Figure 16,Figure 16. Confidence-weighted ensemble average confusion matrix across 30 stratified hold-out runs.,58,figure-016-figure-16-confidence-weighted-ensemble-average-confusion-matrix-across-30-stratified-hold.png
+figure,Figure 17,Figure 17. Average confidence-weighted vote share assigned to the random forest and Gaussian Naive Bayes components across 30 stratified hold-out runs.,58,figure-017-figure-17-average-confidence-weighted-vote-share-assigned-to-the-random-forest-and-gaussia.png
+table,Table 22,Table 22. Section 3 model comparison ordered by average F2-score across 30 stratified hold-out runs.,60,table-022-table-22-section-3-model-comparison-ordered-by-average-f2-score-across-30-stratified-hold.png
+table,Table 23,Table 23. Independent-samples Welch t-test on the summed predictive-metric score for the two highest-ranked Section 3 models across 30 hold-out runs.,62,table-023-table-23-independent-samples-welch-t-test-on-the-summed-predictive-metric-score-for-the-tw.png
+table,Table 24,"Table 24, Target class distribution after final-row removal",71,table-024-table-24-target-class-distribution-after-final-row-removal.png
+table,Table 25,"Table 25, Class-imbalance implications for evaluation",71,table-025-table-25-class-imbalance-implications-for-evaluation.png
+figure,Figure 18,"Figure 18. Target class counts after final-row removal, annotated with each class share in the working dataset.",71,figure-018-figure-18-target-class-counts-after-final-row-removal-annotated-with-each-class-share-in-t.png
+table,Table 26,"Table 26, Descriptive summary of age in the working dataset",75,table-026-table-26-descriptive-summary-of-age-in-the-working-dataset.png
+table,Table 27,"Table 27, Age-shape checks using Shapiro-Wilk and IQR fences",75,table-027-table-27-age-shape-checks-using-shapiro-wilk-and-iqr-fences.png
+figure,Figure 19,"Figure 19. Age distribution shown with a histogram, KDE overlay, mean and median markers, and a supporting boxplot.",75,figure-019-figure-19-age-distribution-shown-with-a-histogram-kde-overlay-mean-and-median-markers-and.png
+figure,Figure 20,Figure 20. Age counts grouped into broad bands for descriptive interpretation.,75,figure-020-figure-20-age-counts-grouped-into-broad-bands-for-descriptive-interpretation.png
+table,Table 28,"Table 28, Overall prevalence of symptom and lifestyle indicators with exact binomial tests",78,table-028-table-28-overall-prevalence-of-symptom-and-lifestyle-indicators-with-exact-binomial-tests.png
+figure,Figure 21,"Figure 21. Overall yes-share of each symptom and lifestyle variable, with exact-binomial 95% confidence intervals and a 50% reference line.",78,figure-021-figure-21-overall-yes-share-of-each-symptom-and-lifestyle-variable-with-exact-binomial-95.png
+figure,Figure 22,Figure 22. Stacked yes/no share of each symptom and lifestyle variable across the full working dataset.,78,figure-022-figure-22-stacked-yes-no-share-of-each-symptom-and-lifestyle-variable-across-the-full-work.png
+table,Table 29,"Table 29, Welch's independent-samples t-test results for all natural features",81,table-029-table-29-welch-s-independent-samples-t-test-results-for-all-natural-features.png
+table,Table 30,"Table 30, Welch's independent-samples t-test results for engineered features",81,table-030-table-30-welch-s-independent-samples-t-test-results-for-engineered-features.png
+figure,Figure 23,Figure 23 converts the binary-feature means from,84,figure-023-figure-23-converts-the-binary-feature-means-from.png
+figure,Figure 23,"Figure 23. Within-class yes-share of each original binary feature by lung cancer status, ordered by the cancer-minus-no-cancer gap. Asterisks mark Welch-test significance at p",86,figure-023-figure-23-within-class-yes-share-of-each-original-binary-feature-by-lung-cancer-status-ord.png
+figure,Figure 24,"Figure 24. Age distribution by lung cancer status, shown as a box-and-strip plot and overlapping density curves.",88,figure-024-figure-24-age-distribution-by-lung-cancer-status-shown-as-a-box-and-strip-plot-and-overlap.png
+figure,Figure cell 90,Figure cell 90,90,figure-090-figure-cell-90.png
+figure,Figure cell 93,Figure cell 93,93,figure-093-figure-cell-93.png
+table,Table 31,"Table 31, Gaussian Naive Bayes baseline configuration and evaluation settings",107,table-031-table-31-gaussian-naive-bayes-baseline-configuration-and-evaluation-settings.png
+table,Table 32,"Table 32, Gaussian Naive Bayes baseline average hold-out performance metrics across 30 runs",107,table-032-table-32-gaussian-naive-bayes-baseline-average-hold-out-performance-metrics-across-30-runs.png
+figure,Figure 25,Figure 25. Gaussian Naive Bayes baseline average confusion matrix across 30 stratified hold-out runs.,107,figure-025-figure-25-gaussian-naive-bayes-baseline-average-confusion-matrix-across-30-stratified-hold.png
+table,Table 33,"Table 33, Engineered-feature experiment configuration",112,table-033-table-33-engineered-feature-experiment-configuration.png
+table,Table 34,"Table 34, Engineered-feature experiment average hold-out metrics across 30 runs",114,table-034-table-34-engineered-feature-experiment-average-hold-out-metrics-across-30-runs.png
+figure,Figure 26,Figure 26. Average confusion matrix for the selected engineered-feature setting across 30 stratified hold-out runs.,114,figure-026-figure-26-average-confusion-matrix-for-the-selected-engineered-feature-setting-across-30-s.png
+table,Table 35,"Table 35, Non-significant-feature experiment configuration",117,table-035-table-35-non-significant-feature-experiment-configuration.png
+table,Table 36,"Table 36, Non-significant-feature experiment average hold-out metrics across 30 runs",119,table-036-table-36-non-significant-feature-experiment-average-hold-out-metrics-across-30-runs.png
+figure,Figure 27,Figure 27. Average confusion matrix for the selected non-significant-feature setting across 30 stratified hold-out runs.,119,figure-027-figure-27-average-confusion-matrix-for-the-selected-non-significant-feature-setting-across.png
+table,Table 37,"Table 37, SMOTE experiment configuration",122,table-037-table-37-smote-experiment-configuration.png
+table,Table 38,"Table 38, SMOTE experiment average hold-out metrics across 30 runs",124,table-038-table-38-smote-experiment-average-hold-out-metrics-across-30-runs.png
+figure,Figure 28,Figure 28. Average confusion matrix for the selected SMOTE setting across 30 stratified hold-out runs.,124,figure-028-figure-28-average-confusion-matrix-for-the-selected-smote-setting-across-30-stratified-hol.png
+table,Table 39,"Table 39, Age-outlier experiment configuration",127,table-039-table-39-age-outlier-experiment-configuration.png
+table,Table 40,"Table 40, Age-outlier experiment average hold-out metrics across 30 runs",129,table-040-table-40-age-outlier-experiment-average-hold-out-metrics-across-30-runs.png
+figure,Figure 29,Figure 29. Average confusion matrix for the selected age-outlier setting across 30 stratified hold-out runs.,129,figure-029-figure-29-average-confusion-matrix-for-the-selected-age-outlier-setting-across-30-stratifi.png
+table,Table 41,"Table 41, Section 5.3 feature-experiment decision summary",131,table-041-table-41-section-5-3-feature-experiment-decision-summary.png
+table,Table 42,Table 42. External GPU grid-search summary and selected Gaussian Naive Bayes hyperparameters.,136,table-042-table-42-external-gpu-grid-search-summary-and-selected-gaussian-naive-bayes-hyperparameter.png
+figure,Figure 30,"Figure 30. Local F2-CQS response curves from the external GPU grid search, showing the peak around the selected Gaussian Naive Bayes smoothing and prior values.",136,figure-030-figure-30-local-f2-cqs-response-curves-from-the-external-gpu-grid-search-showing-the-peak.png
+table,Table 43,Table 43. Final Gaussian Naive Bayes configuration carried forward into the final evaluation.,141,table-043-table-43-final-gaussian-naive-bayes-configuration-carried-forward-into-the-final-evaluatio.png
+table,Table 44,Table 44. Final Gaussian Naive Bayes average hold-out performance metrics across 100 stratified runs.,141,table-044-table-44-final-gaussian-naive-bayes-average-hold-out-performance-metrics-across-100-strati.png
+figure,Figure 31,Figure 31. Final Gaussian Naive Bayes average confusion matrix across 100 stratified hold-out runs.,143,figure-031-figure-31-final-gaussian-naive-bayes-average-confusion-matrix-across-100-stratified-hold-o.png
+table,Table 45,Table 45. Threshold checkpoints for the representative final-model split.,145,table-045-table-45-threshold-checkpoints-for-the-representative-final-model-split.png
+figure,Figure 32,"Figure 32. Threshold trade-offs for the representative final-model split (seed 56), selected because its F2-score was closest to the 100-run mean.",145,figure-032-figure-32-threshold-trade-offs-for-the-representative-final-model-split-seed-56-selected-b.png
+table,Table 46,"Table 46. Top permutation importances for the representative final-model split, measured by the mean drop in F2-score.",148,table-046-table-46-top-permutation-importances-for-the-representative-final-model-split-measured-by.png
+figure,Figure 33,"Figure 33. Top permutation importances for the representative final-model split, ranked by the mean drop in F2-score.",148,figure-033-figure-33-top-permutation-importances-for-the-representative-final-model-split-ranked-by-t.png
+table,Table 47,Table 47. Average subgroup error summary by gender across 100 final-model hold-out runs.,150,table-047-table-47-average-subgroup-error-summary-by-gender-across-100-final-model-hold-out-runs.png
+figure,Figure 34,Figure 34. Average false-positive and false-negative counts by gender across 100 final-model hold-out runs.,150,figure-034-figure-34-average-false-positive-and-false-negative-counts-by-gender-across-100-final-mode.png

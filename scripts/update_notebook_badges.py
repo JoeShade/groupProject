@@ -2,7 +2,7 @@
 
 This module owns locating the generated badge marker and rewriting that cell.
 It does not own notebook analysis content or repository documentation.
-It depends on a stable marker comment in blankTemplate.ipynb and on git history.
+It depends on a stable marker comment in LungCancerML.ipynb and on git history.
 Important constraints:
 - Badge refreshes should only touch the generated markdown cell.
 - When git history is unavailable, the hours badge falls back to zero.
@@ -19,7 +19,7 @@ from urllib.parse import quote
 
 
 MARKER = "<!-- generated-team-badges: run `python scripts/update_notebook_badges.py` to refresh -->"
-NOTEBOOK_PATH = Path(__file__).resolve().parents[1] / "blankTemplate.ipynb"
+NOTEBOOK_PATH = Path(__file__).resolve().parents[1] / "LungCancerML.ipynb"
 MEMBERS = [
     ("James Barlow", "https://github.com/jamesbarlow1812", "7C3AED"),
     ("Joe Shade", "https://github.com/JoeShade", "D97706"),

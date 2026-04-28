@@ -2,7 +2,7 @@
 
 These tests cover export sanitisation and notebook-structure validation.
 They focus on the helper script in isolation so malformed notebook JSON fails
-early without relying on blankTemplate.ipynb for reproduction.
+early without relying on LungCancerML.ipynb for reproduction.
 """
 
 from __future__ import annotations
